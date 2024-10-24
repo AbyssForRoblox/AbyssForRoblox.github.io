@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>abyss</title>
+    <title>Abyss</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -98,11 +98,11 @@
     </div>
 </header>
 
-<h1>abyss</h1>
+<h1>Abyss</h1>
 
 <div class="bio">
     <h2>About Me</h2>
-    <p>Hello, I am abyss owner of abyss config</p>
+    <p>Hello, I am Abyss, owner of Abyss Config.</p>
 </div>
 
 <div class="links">
@@ -115,15 +115,17 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 stars.space. All rights reserved.</p>
+    <p>&copy; 2024 Abyss. All rights reserved.</p>
 </footer>
 
 <script>
-    fetch('https://api.countapi.xyz/hit/abyss/global-views')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('visitCount').innerText = data.value;
-        });
+    let visitCount = localStorage.getItem('visitCount');
+    if (!visitCount) {
+        visitCount = 0;
+    }
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    document.getElementById('visitCount').innerText = visitCount;
 </script>
 
 </body>
