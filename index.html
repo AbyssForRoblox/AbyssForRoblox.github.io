@@ -119,12 +119,11 @@
 </footer>
 
 <script>
-    fetch('https://api.countapi.xyz/hit/abyss/global-views')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('visitCount').innerText = data.value;
-        });
+    function cb(response) {
+        document.getElementById('visitCount').innerText = response.value;
+    }
 </script>
+<script async src="https://api.countapi.xyz/hit/visitsonggm/visits?callback=cb"></script>
 
 </body>
 </html>
