@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #ff8c00, #4b0082);
+            background: linear-gradient(135deg, #ff8c00, #000000);
             color: #fff;
             margin: 0;
             padding: 0;
@@ -37,7 +37,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: radial-gradient(circle, #ff8c00, #4b0082);
+            background: radial-gradient(circle, #ff8c00, #000000);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,7 +64,7 @@
         }
         .links a {
             background-color: #fff;
-            color: #4b0082;
+            color: #000000;
             padding: 10px 20px;
             border-radius: 30px;
             font-weight: bold;
@@ -119,13 +119,11 @@
 </footer>
 
 <script>
-    let visitCount = localStorage.getItem('visitCount');
-    if (!visitCount) {
-        visitCount = 0;
-    }
-    visitCount++;
-    localStorage.setItem('visitCount', visitCount);
-    document.getElementById('visitCount').innerText = visitCount;
+    fetch('https://api.countapi.xyz/hit/abyss/global-views')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('visitCount').innerText = data.value;
+        });
 </script>
 
 </body>
